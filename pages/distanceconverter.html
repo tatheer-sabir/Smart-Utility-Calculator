@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator | Distance Converter</title>
+    <script src="../css+js/converter.js"></script>
+    <link rel="stylesheet" href="../css+js/style.css">
+    <link rel="stylesheet" href="../css+js/converter.css">
+    <link rel="icon" href="../favicon.png">
+</head>
+<body>
+    <header>
+        <label class="open" for="menu">&#9776;</label>
+        <input type="checkbox" id="menu">
+        <div id="sliderMenu">
+            <label class="close" for="menu">X</label>
+            <label for="calculator" class="heading">Calculator</label>
+            <div id="calculator">
+                <a href="../index.html" class="para">Simple Calculator</a>
+                <a href="./scientific.html" class="para">Advance Calculator</a>
+            </div>
+            <label for="converter" class="heading">Converter</label>
+            <div id="converter">
+                <a href="./weightconverter.html" class="para">Weight Converter</a>
+                <a href="./tempconverter.html" class="para">Temprature Converter</a>
+                <a href="./distanceconverter.html" class="para">Distance Converter</a>
+            </div>
+            <a href="./qrcodegenerater.html" class="heading">Qr code Generator</a>
+            <a href="./moneyexchange.html" class="heading">Money Exchange</a>
+        </div>
+        <h1>Distance Calculator</h1>
+    </header>
+    <section>
+        <article>
+            <div class="box">
+                <fieldset>
+                    <legend>Input in Kilo-meter</legend>
+                    <input id="input1" type="number" placeholder="Enter distance in Kilo-meter">
+                </fieldset>
+                <fieldset>
+                    <legend>Output</legend>
+                    <p class="output" id="output1"></p>
+                </fieldset>
+                <div class="button">
+                    <button onclick="tom()">Click to Convert</button>
+                    <button onclick="clear1()">Clear the Fields</button>
+                </div>
+                </div>
+            <div class="box">
+                <fieldset>
+                    <legend>Input in meter</legend>
+                    <input id="input2" type="number" placeholder="Enter distance in meter">
+                </fieldset>
+                <fieldset>
+                    <legend>Output</legend>
+                    <p class="output" id="output2"></p>
+                </fieldset>
+                <div class="button">
+                    <button onclick="tokm()">Click to Convert</button>
+                    <button onclick="clear2()">Clear the Fields</button>
+                </div>
+            </div>
+        </article>
+    </section>
+    <footer><p>Copyright &copy; 2025 Tatheer Sabir. All rights reserved.</p></footer>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculator | QR Code Generator</title>
+  <link rel="stylesheet" href="../css+js/style.css">
+  <link rel="icon" href="../favicon.png">
+  <style>
+
+    :root {
+        --primary-color: #f8f9fa;
+        --secondary-color: #1976d2; /* medium blue */
+        --accent-color: #ffab00;    /* golden yellow */
+        --hover-bg: #e3f2fd;        /* very light blue */
+        --text-color: #424242;
+        --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        --hover-text: #0d47a1;      /* darker blue */
+        --button-bg: #e3f2fd;
+        --button-hover: #bbdefb;
+        --border-color: #90caf9;
+        --focus-color: #64b5f6;
+    }
+
+    body{
+        margin: 0;
+    }
+
+    .container{
+        width: 100%;
+        height: 75vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #f7faff;
+    }
+
+    .inner{
+        width: 90%;
+            display: flex;
+            gap: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+    }
+
+    .inner h1{
+        font-size: xx-large;
+        font-weight: bold;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    .input{
+        border: 1px solid blue;
+        width: 49%;
+
+    }
+
+    .picture{
+        width: 49%;
+        display: block;
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #bdd8f7;
+        border-radius: 6px;
+        font-size: 16px;
+        background-color: white;
+        transition: border 0.2s ease;
+    }
+
+    .input {
+        display: block;
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #bdd8f7;
+        border-radius: 6px;
+        width: 95%;
+        font-size: 16px;
+        background-color: #f5faff;
+        transition: border 0.2s ease;
+        background-color: #ffffff;
+        border: 1px solid #bdd8f7;
+        transition: 
+            border-color 0.3s ease, 
+            box-shadow 0.3s ease, 
+            background-color 0.3s ease;
+    }
+
+    button {
+        width: 100%;
+        height: 48px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 6px;
+        background-color: #e3f2fd;
+        color: #0d47a1;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        transition:
+            background-color 0.3s ease,
+            box-shadow 0.3s ease,
+            transform 0.2s ease;
+        border: none;
+    }
+
+    button:hover {
+        background-color: var(--button-hover);
+        box-shadow: 0 6px 14px rgba(25, 118, 210, 0.15);
+        transform: translateY(-2px);
+        border: 1px solid var(--border-color);
+    }
+
+    /* Button press effect */
+    button:active {
+        transform: translateY(1px);
+        box-shadow: 0 2px 6px rgba(25, 118, 210, 0.2);
+    }
+
+    fieldset {
+        border: 1px solid #c5d8f0;
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 15px;
+        background-color: #f8fbff;
+    }
+
+    legend {
+        font-weight: bold;
+        padding: 0 8px;
+        color: #2c4a6b;
+    }
+
+    input{
+        display: block;
+        padding: 12px;
+        margin: 8px 0;
+        border: 1px solid #bdd8f7;
+        border-radius: 6px;
+        width: 95%;
+        font-size: 16px;
+        background-color: #f5faff;
+        transition: border 0.2s ease;        
+    }
+
+        input:hover {
+        border-color: var(--border-color);
+        box-shadow: 0 0 8px rgba(25, 118, 210, 0.15);
+    }
+
+    /* Focus effect for input */
+    input:focus {
+        border-color: var(--focus-color);
+        box-shadow: 0 0 10px rgba(25, 118, 210, 0.2);
+        background-color: #f8fbff;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: var(--focus-color);
+    }
+
+    #qrcode{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 27.2vh;
+    }
+
+    img{
+        background-color: #f5faff;
+        margin-top: 2%;
+        box-shadow: 0 0 10px rgba(25, 118, 210, 0.2);
+        padding: 8px;
+        transition: border 0.2s ease;    
+    }
+
+    img:hover {
+        border-color: var(--focus-color);
+        box-shadow: 0 0 8px rgba(25, 118, 210, 0.15);
+    }
+  </style>
+</head>
+<body onload=" var qrDiv = document.getElementById('qrcode'); qrDiv.innerHTML = '<img src=\'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent('welcome to our website') + '\' alt=\'QR Code\' />';">
+    <header>
+        <label class="open" for="menu">&#9776;</label>
+        <input type="checkbox" id="menu">
+        <div id="sliderMenu">
+            <label class="close" for="menu">X</label>
+            <label for="calculator" class="heading">Calculator</label>
+            <div id="calculator">
+                <a href="../index.html" class="para">Simple Calculator</a>
+                <a href="./scientific.html" class="para">Advance Calculator</a>
+            </div>
+            <label for="converter" class="heading">Converter</label>
+            <div id="converter">
+                <a href="./weightconverter.html" class="para">Weight Converter</a>
+                <a href="./tempconverter.html" class="para">Temprature Converter</a>
+                <a href="./distanceconverter.html" class="para">Distance Converter</a>
+            </div>
+            <a href="./qrcodegenerater.html" class="heading">Qr code Generator</a>
+            <a href="./moneyexchange.html" class="heading">Money Exchange</a>
+        </div>
+        <h1>QR Code Generator</h1>
+    </header>
+    <div class="container">
+        <div class="inner">
+            <div class="input">
+                <h1>QR Code Generator</h1>
+                <fieldset>
+                    <legend>Input</legend>
+                    <input id="dataInput" type="text" placeholder="Enter text or URL" />
+                </fieldset>
+                <button onclick="
+                    var data = document.getElementById('dataInput').value.trim();
+                    if (!data) {
+                        alert('Please enter some text or URL!');
+                        return;
+                    }
+                    var qrDiv = document.getElementById('qrcode');
+                    qrDiv.innerHTML = '<img src=\'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(data) + '\' alt=\'QR Code\' />';">Generate
+                </button>
+            </div>
+            <div class="picture">
+                <center><h1>Scan Me</h1></center>
+                <div id="qrcode"></div>
+            </div>
+            
+        </div>
+    </div>
+    <footer><p>Copyright &copy; 2025 Tatheer Sabir. All rights reserved.</p></footer>
+</body>
+</html>

@@ -1,0 +1,174 @@
+:root {
+    --primary-color: #f8f9fa;
+    --secondary-color: #1976d2; /* medium blue */
+    --accent-color: #ffab00;    /* golden yellow */
+    --hover-bg: #e3f2fd;        /* very light blue */
+    --text-color: #424242;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --hover-text: #0d47a1;      /* darker blue */
+}
+
+/* HEADER */
+header {
+    padding: 15px 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Burger icon */
+.open {
+    font-size: x-large;
+    padding-top: 8px;
+    cursor: pointer;
+    color: var(--secondary-color);
+    transition: transform 0.2s ease;
+}
+.open:hover {
+    transform: scale(1.1);
+    color: var(--hover-text);
+}
+
+/* Slide menu logic */
+#menu {
+    display: none;
+}
+#menu:checked ~ #sliderMenu {
+    display: block;
+}
+
+/* SLIDE MENU */
+#sliderMenu {
+    width: 18%;
+    background-color: var(--primary-color);
+    height: 100vh;
+    display: none;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    position: absolute;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.1);
+    border-right: 2px solid var(--accent-color);
+}
+
+/* Close X */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--secondary-color);
+    transition: transform 0.2s ease;
+}
+.close:hover {
+    transform: rotate(90deg);
+    color: var(--hover-text);
+}
+
+/* Main Links - Headings */
+.heading {
+    font-weight: bold;
+    font-size: 22px;
+    padding: 10px;
+    display: block;
+    color: var(--secondary-color);
+    text-decoration: none;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+.heading:hover {
+    border-left: 4px solid var(--accent-color);
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+}
+
+/* Sub Links - Paras */
+.para {
+    font-size: large;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 8px 20px;
+    display: block;
+    transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+.para:hover {
+    background-color: var(--hover-bg);
+    padding-left: 30px;
+    color: var(--hover-text);
+}
+
+/* Title */
+h1 {
+    padding-top: 8px;
+    margin: 0;
+    font-size: 35px;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
+}
+h1:hover {
+    color: var(--hover-text);
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    padding: 15px;
+    background-color: var(--primary-color);
+    font-size: 14px;
+    color: var(--text-color);
+    border-top: 2px solid var(--accent-color);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+}
+footer p:hover {
+    color: var(--hover-text);
+}
+
+/* ========= SLIDE-IN & SLIDE-OUT with BOUNCE ========= */
+
+/* Start hidden + ready for slide-out animation */
+#sliderMenu {
+    animation: slideOut 0.5s ease forwards;
+}
+
+/* When menu is checked (open), play bounce-in */
+#menu:checked ~ #sliderMenu {
+    display: block;
+    animation: bounceSlideIn 0.6s ease forwards;
+}
+
+/* Bounce In Animation */
+@keyframes bounceSlideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    60% {
+        transform: translateX(20px);
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Bounce Out Animation */
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
